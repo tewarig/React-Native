@@ -10,12 +10,17 @@ import {
   Alert,
   Button,
   Platform,
+  Dimensions,
 } from "react-native";
+import {
+  useDimensions,
+  useDeviceOrientation,
+} from "@react-native-community/hooks";
 
 export default function App() {
-  const handlePress = () => {
-    console.log("yo");
-  };
+  console.log("yo", useDimensions(), useDeviceOrientation());
+
+  const handlePress = () => {};
   return (
     <SafeAreaView style={styles.container}>
       <Button
