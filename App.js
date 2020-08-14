@@ -16,29 +16,12 @@ import {
   useDimensions,
   useDeviceOrientation,
 } from "@react-native-community/hooks";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
 
 export default function App() {
   console.log("yo", useDimensions(), useDeviceOrientation());
 
-  const handlePress = () => {};
-  return (
-    <SafeAreaView style={styles.container}>
-      <Button
-        title="Click me!"
-        onPress={() =>
-          Alert.alert("My Name", "My Message", [
-            {
-              text: "Yes",
-              onPress: () => {
-                console.log("Hello");
-              },
-            },
-            { text: "No" },
-          ])
-        }
-      />
-    </SafeAreaView>
-  );
+  return <WelcomeScreen />;
 }
 
 const styles = StyleSheet.create({
