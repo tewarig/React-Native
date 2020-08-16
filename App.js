@@ -21,11 +21,14 @@ import Card from "./app/components/card";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScree";
 import ViewImageContainer from "./app/screens/ViewScreenImage";
+import MessageScreen from "./app/screens/MessagesScreen";
+import AccountScreen from "./app/screens/AccountScreen";
+import ListingScreen from "./app/screens/ListingScreen";
 
 export default function App() {
   console.log("yo", useDimensions(), useDeviceOrientation());
 
-  return <ViewImageContainer />;
+  return <MessageScreen />;
 }
 
 const styles = StyleSheet.create({
