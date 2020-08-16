@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -12,6 +12,7 @@ import {
   Platform,
   Dimensions,
   View,
+  TextInput,
 } from "react-native";
 import {
   useDimensions,
@@ -24,11 +25,35 @@ import ViewImageContainer from "./app/screens/ViewScreenImage";
 import MessageScreen from "./app/screens/MessagesScreen";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingScreen from "./app/screens/ListingScreen";
+import Screen from "./app/components/Screen";
+import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
+
+const categories = [
+  { label: "Furniture", value: 1 },
+  { label: "Clothing", value: 2 },
+  { label: "Cameras", value: 3 },
+];
 
 export default function App() {
-  console.log("yo", useDimensions(), useDeviceOrientation());
+  const [category, setcategory] = useState("");
 
-  return <MessageScreen />;
+  return (
+    <Screen>
+      <AppTextInput
+        item={categories}
+        placeholder="Email"
+        icon="email"
+      ></AppTextInput>
+      <AppPicker
+        selectedItem={category}
+        onSelectItem={(item) => setcategory(item)}
+        icon="apps"
+        placeholder="Category"
+        items={categories}
+      ></AppPicker>
+    </Screen>
+  );
 }
 
 const styles = StyleSheet.create({
